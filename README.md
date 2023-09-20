@@ -15,6 +15,8 @@ Ever wanted to be able to see where you rank amoungst other lifters or simply tr
 
 **Leaderboard**
 
+<img src="images/leaderboard_base.jpg" alt="leaderboard_base" width="200"/>
+
 ![leaderboard_base](images/leaderborad_base.jpg)
 ![leaderboard_sort](images/leaderboard_sort.jpg)
 ![leaderboard_filter](images/leaderboard_filter.jpg)
