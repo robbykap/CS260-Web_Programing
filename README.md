@@ -16,18 +16,18 @@ Ever wanted to be able to see where you rank amoungst other lifters or simply tr
 **Leaderboard**
 
 <img src="images/leaderboard_base.jpg" alt="leaderboard_base" width="300"/> <img src="images/leaderboard_sort.jpg" alt="leaderboard_sort" width="300"/> 
+
 <img src="images/leaderboard_filter.jpg" alt="leaderboard_filter" width="300"/> <img src="images/leaderboard_verified.jpg" alt="leaderboard_verified" width="300"/>
 
 
 **Q&A**
 
-![qa_base](images/qa_base.jpg)
-![qa_create](images/qa_create.jpg)
+<img src="images/qa_base.jpg" alt="qa_base" width="300"/> <img src="images/qa_create.jpg" alt="qa_create" width="300"/>
 
 
 **Profile**
 
-![profile](images/profile.jpg)
+<img src="images/profile.jpg" alt="profile" width="300"/>
 
 
 ### Key features
