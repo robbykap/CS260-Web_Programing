@@ -15,12 +15,7 @@ Ever wanted to be able to see where you rank amoungst other lifters or simply tr
 
 **Leaderboard**
 
-<img src="images/leaderborad_base.jpg" alt="leaderboard_base" width="200"/>
-
-![leaderboard_base](images/leaderborad_base.jpg)
-![leaderboard_sort](images/leaderboard_sort.jpg)
-![leaderboard_filter](images/leaderboard_filter.jpg)
-![leaderboard_verified](images/leaderboard_verified.jpg)
+<img src="images/leaderboard_base.jpg" alt="leaderboard_base" width="300"/> <img src="images/leaderboard_sort.jpg" alt="leaderboard_sort" width="300"/> <img src="images/leaderborad_filter.jpg" alt="leaderboard_filter" width="300"/> <img src="images/leaderborad_verified.jpg" alt="leaderboard_verified" width="300"/>
 
 
 **Q&A**
