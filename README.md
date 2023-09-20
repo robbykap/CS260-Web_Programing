@@ -8,21 +8,29 @@ Ever wanted to be able to see where you rank amoungst other lifters or simply tr
 
 ### Design
 
-Home
+**Home**
+
 ![home_page]()
 
-Leaderboard
+
+**Leaderboard**
+
 ![leaderboard_base](images/leaderborad_base.jpg)
 ![leaderboard_sort](images/leaderboard_sort.jpg)
 ![leaderboard_filter](images/leaderboard_filter.jpg)
 ![leaderboard_verified](images/leaderboard_verified.jpg)
 
-Q&A
+
+**Q&A**
+
 ![qa_base](images/qa_base.jpg)
 ![qa_create](images/qa_create.jpg)
 
-Profile
+
+**Profile**
+
 ![profile](images/profile.jpg)
+
 
 ### Key features
 
