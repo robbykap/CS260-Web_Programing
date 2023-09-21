@@ -10,7 +10,7 @@ Ever wanted to be able to see where you rank amoungst other lifters or simply tr
 
 **Home**
 
-![home_page]()
+<img src="images/home.jpg" alt="home" width="300"/>
 
 
 **Leaderboard**
