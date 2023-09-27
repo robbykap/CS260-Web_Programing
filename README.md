@@ -60,3 +60,14 @@ I am going to use the required technologies in the following ways.
 - **WebSocket** - As each lifter posts their totals, their totals are broadcasted to other users.
 - **React** - Application ported to use the React web framework.
 
+## HTML deliverable
+
+For this deliverable I built out the structure of my application using HTML.
+
+- **HTML pages** - Five HTML pages that represent the ability to login, check the leaderboard, view and create posts, and check your progress.
+- **Links** - All the pages are linked to one another, in the Q&A page there are placeholders to link you to other peoples posts and one to link you to the page to create a post.
+- **Text** - There is text to show the rankings of different lifters and to see others questions and answers.
+- **Images** - No images at the moment do not know if I need them but I did create a graph for the user to track their progress in another way.
+- **Login** - Input box and submit button for login.
+- **Database** - The leaderboard lifts and viewing comments on others posts are going to require getting and storing data.
+- **WebSocket** - Post videos liknked to their lifts and to get people to others posts and to create your own.
