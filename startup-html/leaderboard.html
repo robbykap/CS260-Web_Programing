@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html data-bs-theme="dark" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"
+    />
+
+    <script defer src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script
+      defer
+      src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#example").DataTable();
+      });
+    </script>
+
+    <link rel="stylesheet" href="css/mainStylesheet.css" />
+    <link rel="stylesheet" href="css/leaderboardStylesheet.css" />
+    <title>Optimal Lifts</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  </head>
+
+  <body>
+    <header class="top_nav">
+      <h1 class="optimal-lifts">Optimal Lifts</h1>
+      <nav>
+        <menu>
+          <div>
+            <a class="tabs" href="index.html">Home</a>
+            <a class="tabs" href="leaderboard.html">Leaderboard</a>
+            <a class="tabs" href="qa.html">Q&A</a>
+            <a class="tabs" href="profile.html">Profile</a>
+          </div>
+        </menu>
+      </nav>
+    </header>
+
+    <div class="container py-5 px-5 w-50" id="container">
+      <h1 class="text-center" style="font-weight: bold; color: #272b2e;">Leaderboard</h1>
+      <br />
+      <table id="example" class="table table-striped hover" style="width: 100%">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Squat</th>
+            <th>Bench</th>
+            <th>Deadlift</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2</td>
+            <td>Thomas</td>
+            <td>195</td>
+            <td>255</td>
+            <td>315</td>
+            <td>765</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Max</td>
+            <td>5</td>
+            <td>450</td>
+            <td>3.14159</td>
+            <td>458.14159</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Spencer</td>
+            <td>400</td>
+            <td>285</td>
+            <td>500</td>
+            <td>1185</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Evan</td>
+            <td>220</td>
+            <td>120</td>
+            <td>300</td>
+            <td>640</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Max</td>
+            <td>5</td>
+            <td>450</td>
+            <td>3.14159</td>
+            <td>458.14159</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Spencer</td>
+            <td>400</td>
+            <td>285</td>
+            <td>500</td>
+            <td>1185</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Porter</td>
+            <td>350</td>
+            <td>255</td>
+            <td>405</td>
+            <td>1010</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Evan</td>
+            <td>220</td>
+            <td>120</td>
+            <td>300</td>
+            <td>640</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Max</td>
+            <td>5</td>
+            <td>450</td>
+            <td>3.14159</td>
+            <td>458.14159</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Spencer</td>
+            <td>400</td>
+            <td>285</td>
+            <td>500</td>
+            <td>1185</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Evan</td>
+            <td>220</td>
+            <td>120</td>
+            <td>300</td>
+            <td>640</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Max</td>
+            <td>5</td>
+            <td>450</td>
+            <td>3.14159</td>
+            <td>458.14159</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Spencer</td>
+            <td>400</td>
+            <td>285</td>
+            <td>500</td>
+            <td>1185</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Evan</td>
+            <td>220</td>
+            <td>120</td>
+            <td>300</td>
+            <td>640</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Squat</th>
+            <th>Bench</th>
+            <th>Deadlift</th>
+            <th>Total</th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <footer class="navbar fixed-bottom">
+      <span class="text-reset">About Webpage</span>
+      <br />
+      <a class="github" href="https://github.com/robbykap/startup"
+        >Optimal Lifts Repo</a
+      >
+    </footer>
+  </body>
+</html>

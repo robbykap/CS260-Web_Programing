@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html data-bs-theme="dark" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+    <div tag="css_scripts">
+    <div tag="css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"
+    />
+    <link rel="stylesheet" href="css/mainStylesheet.css" />
+    </div>
+    <div tag="scripts">
+      <script defer src="https://code.jquery.com/jquery-3.7.0.js"></script>
+      <script
+        defer
+        src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"
+      ></script>
+      <script
+        defer
+        src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"
+      ></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script>
+        $(document).ready(function () {
+          $("#example").DataTable();
+        });
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    </div>
+    </div>
+
+    <title>Optimal Lifts</title>
+
+    
+  </head>
+
+  <body>
+    <header class="top_nav">
+      <h1 class="optimal-lifts">Optimal Lifts</h1>
+      <nav>
+        <menu>
+          <div>
+            <a class="tabs" href="index.html">Home</a>
+            <a class="tabs" href="leaderboard.html">Leaderboard</a>
+            <a class="tabs" href="qa.html">Q&A</a>
+            <a class="tabs" href="profile.html">Profile</a>
+          </div>
+        </menu>
+      </nav>
+    </header>
+
+    <div class="container py-5 px-5 w-50" id="container">
+      <h1 class="text-center" style="font-weight: bold; color: #272b2e;">dude0001</h1>
+      <br />
+      <table id="example" class="table table-striped hover" style="width: 100%">
+        <thead>
+          <tr class="labels">
+            <th>Date</th>
+            <th>Squat</th>
+            <th>Bench</th>
+            <th>Deadlift</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>July 6, 2023</td>
+            <td>185</td>
+            <td>135</td>
+            <td>205</td>
+            <td>525</td>
+          </tr>
+          <tr>
+            <td>September 2, 2023</td>
+            <td>205</td>
+            <td>185</td>
+            <td>225</td>
+            <td>615</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>Date</th>
+            <th>Squat</th>
+            <th>Bench</th>
+            <th>Deadlift</th>
+            <th>Total</th>
+          </tr>
+        </tfoot>
+      </table>
+      <br />
+
+      <h2 class="text-center" style="font-weight: bold; color: #272b2e;">Progress</h2>
+      <br />
+      <div class="chart d-flex">
+      <canvas id="myChart" style="width: 100%; max-width: 600px"></canvas>
+
+      <script>
+        const xValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
+        new Chart("myChart", {
+          type: "line",
+          data: {
+            labels: xValues,
+
+            datasets: [
+              {
+                label: "Squat",
+                data: [0, , , , , , 185, 195, 205],
+                borderColor: "red",
+                fill: false,
+              },
+              {
+                label: "Bench",
+                data: [0, , , , , , 135, 160, 185],
+                borderColor: "green",
+                fill: false,
+              },
+              {
+                label: "Deadlift",
+                data: [0, , , , , , 205, 215, 225],
+                borderColor: "blue",
+                fill: false,
+              },
+            ],
+          },
+
+          options: {
+            legend: {
+              display: true,
+              position: "right",
+              labels: {
+                fontColor: "black",
+                fontSize: 13,
+                padding: 20,
+                boxWidth: 15,
+              },
+            },
+          },
+        });
+      </script>
+      </div>
+    </div>
+    <footer class="navbar fixed-bottom">
+      <span class="text-reset">About Webpage</span>
+      <br />
+      <a class="github" href="https://github.com/robbykap/startup"
+        >Optimal Lifts Repo</a
+      >
+    </footer>
+  </body>
+</html>
