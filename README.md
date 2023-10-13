@@ -67,3 +67,14 @@ For this deliverable I built out the structure of my application using HTML.
 - **Login** - Input box and submit button for login.
 - **Database** - The leaderboard lifts and viewing comments on others posts are going to require getting and storing data.
 - **WebSocket** - Post videos liknked to their lifts and to get people to others posts and to create your own.
+
+## CSS deliverable
+
+For this deliverable I properly styled the application into its final appearance.
+
+- **Header, footer, and main content body**
+- **Navigation elements** - I dropped the underlines and changed the color for anchor elements.
+- **Responsive to window resizing** - My website looks great on a computer and is navigable on a mobile device but doesn't look the greatest but am still working on that.
+- **Application elements** - Used good contrast and whitespace. Colors and theme is maintained throught the website.
+- **Application text content** - Consistent fonts and sizing for headers, navigation and so on.
+- **Application images** - Updated the favicon for my websites tab and have a image for my homepage that I may add to my other locations on my website.
