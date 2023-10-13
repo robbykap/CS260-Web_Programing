@@ -1,3 +1,3 @@
-# simon-html
+# simon-css
 
-This deliverable demonstrates the use of basic HTML elements for structure, basic formatting, input, output, links, and drawing.
+This application deliverable demonstrates the use of basic CSS for styling and a responsive design.
