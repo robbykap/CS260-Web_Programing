@@ -27,8 +27,29 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
       $(document).ready(function () {
-        $("#example").DataTable();
-      });
+          $("#example").DataTable({
+         "autoWidth": true,
+         "scrollY": "400px",
+         "scrollX": true,
+         "dom": '<lf<t>Bip>',
+	 "lengthMenu": [[10,20,25,50,-1], [10,20,25,50,"All"]],
+         "columnDefs": [
+		{"width" : "120px", "targets": 0},
+		{"width" : "50px", "targets": 1},
+		{"width" : "200px", "targets": 2},
+		{"width" : "30px", "targets": 3},
+		{"width" : "40px", "targets": 4},
+         ],
+         "buttons": [
+             'csv', 
+             {
+                extend: 'pdfHtml5',
+                orientation: 'landscape',
+                pageSize: 'LEGAL'
+             }
+         ]
+     });
+        });
     </script>
 
     <link rel="stylesheet" href="css/mainStylesheet.css" />
@@ -52,6 +73,7 @@
       </nav>
     </header>
 
+    <div class="d-grid">
     <div class="container py-5 px-5 w-50" id="container">
       <h1 class="text-center" style="font-weight: bold; color: #272b2e;">Leaderboard</h1>
       <br />
@@ -192,12 +214,15 @@
         </tfoot>
       </table>
     </div>
-    <footer class="navbar fixed-bottom">
+    <div class="navbar align-end">
+      <footer>
       <span class="text-reset">About Webpage</span>
       <br />
       <a class="github" href="https://github.com/robbykap/startup"
         >Optimal Lifts Repo</a
       >
     </footer>
+    </div>
+    </div>
   </body>
 </html>

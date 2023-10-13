@@ -30,8 +30,27 @@
     </script>
     <script>
       $(document).ready(function () {
-        $("#example").DataTable();
-      });
+          $("#example").DataTable({
+         "autoWidth": true,
+         "scrollY": "400px",
+         "scrollX": true,
+         "dom": '<lf<t>Bip>',
+	 "lengthMenu": [[10,20,25,50,-1], [10,20,25,50,"All"]],
+         "columnDefs": [
+		{"width" : "120px", "targets": 0},
+		{"width" : "50px", "targets": 1},
+
+         ],
+         "buttons": [
+             'csv', 
+             {
+                extend: 'pdfHtml5',
+                orientation: 'landscape',
+                pageSize: 'LEGAL'
+             }
+         ]
+     });
+        });
     </script>
     <title>Optimal Lifts</title>
 
@@ -53,6 +72,7 @@
       </nav>
     </header>
 
+    <div class="d-grid">
       <div class="container py-5 px-5  w-50" id="container">
         <h1 class="text-center" style="font-weight: bold; color: #272b2e;">Questions and Answers</h1>
         <br/>
@@ -83,12 +103,17 @@
       <button class="btn" style="border-radius: 5px; border-top:1rem; border-bottom: 1rem; border-left: 1rem; border-right: 1rem; background-color: #272b2e;">
         <a href="ask.html" style="color:#c1cdd0">Ask a Question</a>
       </button>
-      <footer class="navbar fixed-bottom">
+      </div>
+
+      <div class="navbar align-end">
+        <footer>
         <span class="text-reset">About Webpage</span>
         <br />
         <a class="github" href="https://github.com/robbykap/startup"
           >Optimal Lifts Repo</a
         >
       </footer>
+      </div>
+      </div>
   </body>
 </html>

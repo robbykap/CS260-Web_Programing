@@ -41,6 +41,7 @@ header {
 }
 
 footer {
+    width: 100%;
     flex-direction: column;
     display: flex;
     align-items: center;
@@ -127,6 +128,18 @@ textarea {
     resize: none;
     color : #9aa9ad;
 }
+
+.d-grid { 
+    display: grid; 
+    grid-template-columns: 1fr;
+    width: 100%;
+}
+
+.align-end{
+    align-self: end/important;
+}
+
+
 
 @media (max-width: 600px),(max-height: 800px) {
 
