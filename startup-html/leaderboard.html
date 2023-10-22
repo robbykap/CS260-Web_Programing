@@ -1,67 +1,94 @@
 <!DOCTYPE html>
-
 <html data-bs-theme="dark" lang="en">
   <head>
+    <title>Optimal Lifts</title>
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"
-    />
 
-    <script defer src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script
-      defer
-      src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"
-    ></script>
-    <script
-      defer
-      src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"
-    ></script>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+    <css>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"/>
+    
+    <link rel="stylesheet" href="css/mainStylesheet.css" />
+    </css>
+    <js>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script defer src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script defer src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
     <script>
       $(document).ready(function () {
-          $("#example").DataTable({
-         "autoWidth": true,
-         "scrollY": "400px",
-         "scrollX": true,
-         "dom": '<lf<t>Bip>',
-	 "lengthMenu": [[10,20,25,50,-1], [10,20,25,50,"All"]],
-         "columnDefs": [
-		{"width" : "120px", "targets": 0},
-		{"width" : "50px", "targets": 1},
-		{"width" : "200px", "targets": 2},
-		{"width" : "30px", "targets": 3},
-		{"width" : "40px", "targets": 4},
-         ],
-         "buttons": [
-             'csv', 
-             {
-                extend: 'pdfHtml5',
-                orientation: 'landscape',
-                pageSize: 'LEGAL'
-             }
-         ]
-     });
+          $("#leaderboard").DataTable({
+              "autoWidth": true,
+              "scrollY": "400px",
+              "scrollX": true,
+              "dom": '<lf<t>Bip>',
+	            "lengthMenu": [[10,20,25,50,-1], [10,20,25,50,"All"]],
+              "columnDefs": [
+                              {"width" : "100px", "targets": 0},
+                              {"width" : "250px", "targets": 1},
+                              {"width" : "70px", "targets": 2},
+                              {"width" : "70px", "targets": 3},
+                              {"width" : "70px", "targets": 4},
+                                                                ],
+              "buttons": [
+                          'csv', 
+                          {
+                              extend: 'pdfHtml5',
+                              orientation: 'landscape',
+                              pageSize: 'LEGAL'
+                          }
+                            ]
+          });
         });
     </script>
+    <script>
+      fetch("json/leaderboard.json")
+        .then((response) => response.json())
+        .then((data) => {
+              data.forEach((row) => {
+                row.total = row.squat + row.bench + row.deadlift;
+              });
 
-    <link rel="stylesheet" href="css/mainStylesheet.css" />
-    <link rel="stylesheet" href="css/leaderboardStylesheet.css" />
-    <title>Optimal Lifts</title>
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+              data.sort((a, b) => b.total - a.total);
+
+              data.forEach((row, index) => {
+                if (index === 0) {
+                  row.rank = 1;
+                } else if (row.total === data[index - 1].total) {
+                  row.rank = data[index - 1].rank;
+                } else {
+                  row.rank = data[index - 1].rank + 1;
+                }
+              });
+
+              data.forEach((row) => {
+                $("#leaderboard").append(
+                  "<tr><td>" +
+                    row.rank +
+                    "</td><td>" +
+                    row.name +
+                    "</td><td>" +
+                    row.squat +
+                    "</td><td>" +
+                    row.bench +
+                    "</td><td>" +
+                    row.deadlift +
+                    "</td><td>" +
+                    row.total +
+                    "</td></tr>"
+                );
+              });
+            });
+    </script>
+    </js>
   </head>
-
   <body>
-    <header class="top_nav">
-      <h1 class="optimal-lifts">Optimal Lifts</h1>
-      <nav>
+    <header class="top-nav">
+      <h1 class="text-center" style="font-weight: bold; font-size: 50px; color: #272b2e;">Optimal Lifts</h1>
         <menu>
           <div>
             <a class="tabs" href="index.html">Home</a>
@@ -72,157 +99,43 @@
         </menu>
       </nav>
     </header>
-
     <div class="d-grid">
-    <div class="container py-5 px-5 w-50" id="container">
-      <h1 class="text-center" style="font-weight: bold; color: #272b2e;">Leaderboard</h1>
-      <br />
-      <table id="example" class="table table-striped hover" style="width: 100%">
-        <thead>
-          <tr>
-            <th>Rank</th>
-            <th>Name</th>
-            <th>Squat</th>
-            <th>Bench</th>
-            <th>Deadlift</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>2</td>
-            <td>Thomas</td>
-            <td>195</td>
-            <td>255</td>
-            <td>315</td>
-            <td>765</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Max</td>
-            <td>5</td>
-            <td>450</td>
-            <td>3.14159</td>
-            <td>458.14159</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Spencer</td>
-            <td>400</td>
-            <td>285</td>
-            <td>500</td>
-            <td>1185</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Evan</td>
-            <td>220</td>
-            <td>120</td>
-            <td>300</td>
-            <td>640</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Max</td>
-            <td>5</td>
-            <td>450</td>
-            <td>3.14159</td>
-            <td>458.14159</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Spencer</td>
-            <td>400</td>
-            <td>285</td>
-            <td>500</td>
-            <td>1185</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>Porter</td>
-            <td>350</td>
-            <td>255</td>
-            <td>405</td>
-            <td>1010</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Evan</td>
-            <td>220</td>
-            <td>120</td>
-            <td>300</td>
-            <td>640</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Max</td>
-            <td>5</td>
-            <td>450</td>
-            <td>3.14159</td>
-            <td>458.14159</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Spencer</td>
-            <td>400</td>
-            <td>285</td>
-            <td>500</td>
-            <td>1185</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Evan</td>
-            <td>220</td>
-            <td>120</td>
-            <td>300</td>
-            <td>640</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Max</td>
-            <td>5</td>
-            <td>450</td>
-            <td>3.14159</td>
-            <td>458.14159</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Spencer</td>
-            <td>400</td>
-            <td>285</td>
-            <td>500</td>
-            <td>1185</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Evan</td>
-            <td>220</td>
-            <td>120</td>
-            <td>300</td>
-            <td>640</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <th>Rank</th>
-            <th>Name</th>
-            <th>Squat</th>
-            <th>Bench</th>
-            <th>Deadlift</th>
-            <th>Total</th>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
-    <div class="navbar align-end">
-      <footer>
-      <span class="text-reset">About Webpage</span>
-      <br />
-      <a class="github" href="https://github.com/robbykap/startup"
-        >Optimal Lifts Repo</a
-      >
-    </footer>
-    </div>
+      <div class="container py-5 px-5 w-50" id="container">
+        <h1 class="text-center" style="font-weight: bold; color: #272b2e;">Leaderboard</h1>
+        <br />
+        <table id="leaderboard" class="table table-striped hover" style="width: 100%">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Name</th>
+              <th>Squat</th>
+              <th>Bench</th>
+              <th>Deadlift</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- JSON data -->
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>Rank</th>
+              <th>Name</th>
+              <th>Squat</th>
+              <th>Bench</th>
+              <th>Deadlift</th>
+              <th>Total</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="navbar align-end">
+        <footer>
+          <span class="text-reset">About Webpage</span>
+          <br />
+          <a class="github" href="https://github.com/robbykap/startup">Optimal Lifts Repo</a>
+        </footer>
+      </div>
     </div>
   </body>
 </html>

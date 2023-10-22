@@ -28,7 +28,7 @@ header {
     justify-content: center;
 }
 
-.top_nav {
+.top-nav {
     flex-direction: row;
     display: flex;
     align-items: center;
@@ -63,14 +63,7 @@ a {
     color: black;
 }
 
-    
-.optimal-lifts {
-    color: #23262B;
-    font-align: center;
-    font-size: 50px;
-    font-weight: bold;
-    letter-spacing: 0.09em;
-}
+
 
 .tabs { 
     font-size: 20px;
@@ -154,4 +147,3 @@ textarea {
         position:sticky;
     }
 }
-
