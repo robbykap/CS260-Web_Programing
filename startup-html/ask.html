@@ -2,49 +2,23 @@
 
 <html data-bs-theme="dark" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-
-    <div tag="css_scripts">
-    <div tag="css">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"
-    />
-    <link rel="stylesheet" href="css/mainStylesheet.css" />
-    </div>
-    <div tag="scripts">
-      <script defer src="https://code.jquery.com/jquery-3.7.0.js"></script>
-      <script
-        defer
-        src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"
-      ></script>
-      <script
-        defer
-        src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"
-      ></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script>
-        $(document).ready(function () {
-          $("#example").DataTable();
-        });
-      </script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    </div>
-    </div>
     <title>Optimal Lifts</title>
 
-  </head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+    <css>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"/>
+    
+    <link rel="stylesheet" href="css/mainStylesheet.css" />
+    </css>
+  </head>
   <body>
-    <header class="top_nav">
-      <h1 class="optimal-lifts">Optimal Lifts</h1>
-      <nav>
+    <header class="top-nav">
+      <h1 class="text-center" style="font-weight: bold; font-size: 50px; color: #272b2e;">Optimal Lifts</h1>
         <menu>
           <div>
             <a class="tabs" href="index.html">Home</a>
@@ -60,26 +34,12 @@
       <h1 class="text-center" style="font-weight: bold; color: #272b2e;">Create Post</h1>
       <br />
       <div class="d-flex flex-column">
-      <textarea
-        id="post"
-        name="post"
-        rows="3"
-        cols="100"
-        placeholder="Title here"
-      ></textarea>
-      <br />
-      <textarea
-        id="post"
-        name="post"
-        rows="35"
-        cols="100"
-        placeholder="Ask a question here..."
-      ></textarea>
-    </div>
-      <br />
-      <button class="btn" style="border-radius: 5px; border-top:1rem; border-bottom: 1rem; border-left: 1rem; border-right: 1rem; background-color: #272b2e;">
-        <a href="ask.html" style="color:#c1cdd0">Post</a>
-      </button>
+        <textarea id="post" name="post" rows="3" cols="100" placeholder="Title here"></textarea>
+        <br />
+        <textarea id="post" name="post" rows="35" cols="100" placeholder="Ask a question here..."></textarea>
       </div>
+      <br />
+      <button class="btn" style="background-color: #272b2e;"><a href="ask.html" style="color:#c1cdd0">Post</a></button>
+    </div>
   </body>
 </html>

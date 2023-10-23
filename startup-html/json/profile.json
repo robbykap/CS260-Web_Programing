@@ -10,5 +10,11 @@
     "squat": 145,
     "bench": 100,
     "deadlift": 195
+    },
+    {
+    "date": "September 15, 2017",
+    "squat": 155,
+    "bench": 105,
+    "deadlift": 205
     }
 ]
