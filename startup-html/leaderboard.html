@@ -19,71 +19,7 @@
     <script defer src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script defer src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script defer src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-    <script>
-      $(document).ready(function () {
-          $("#leaderboard").DataTable({
-              "autoWidth": true,
-              "scrollY": "400px",
-              "scrollX": true,
-              "dom": '<lf<t>Bip>',
-	            "lengthMenu": [[10,20,25,50,-1], [10,20,25,50,"All"]],
-              "columnDefs": [
-                              {"width" : "100px", "targets": 0},
-                              {"width" : "250px", "targets": 1},
-                              {"width" : "70px", "targets": 2},
-                              {"width" : "70px", "targets": 3},
-                              {"width" : "70px", "targets": 4},
-                                                                ],
-              "buttons": [
-                          'csv', 
-                          {
-                              extend: 'pdfHtml5',
-                              orientation: 'landscape',
-                              pageSize: 'LEGAL'
-                          }
-                            ]
-          });
-        });
-    </script>
-    <script>
-      fetch("json/leaderboard.json")
-        .then((response) => response.json())
-        .then((data) => {
-              data.forEach((row) => {
-                row.total = row.squat + row.bench + row.deadlift;
-              });
-
-              data.sort((a, b) => b.total - a.total);
-
-              data.forEach((row, index) => {
-                if (index === 0) {
-                  row.rank = 1;
-                } else if (row.total === data[index - 1].total) {
-                  row.rank = data[index - 1].rank;
-                } else {
-                  row.rank = data[index - 1].rank + 1;
-                }
-              });
-
-              data.forEach((row) => {
-                $("#leaderboard").append(
-                  "<tr><td>" +
-                    row.rank +
-                    "</td><td>" +
-                    row.name +
-                    "</td><td>" +
-                    row.squat +
-                    "</td><td>" +
-                    row.bench +
-                    "</td><td>" +
-                    row.deadlift +
-                    "</td><td>" +
-                    row.total +
-                    "</td></tr>"
-                );
-              });
-            });
-    </script>
+    <script src="js/leaderboard/leaderboard.js"></script>
     </js>
   </head>
   <body>

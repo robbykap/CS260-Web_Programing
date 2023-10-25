@@ -20,6 +20,11 @@
       <link rel="stylesheet" href="css/mainStylesheet.css" />
       <link rel="stylesheet" href="css/loginStylesheet.css" />
     </css>
+    <js>
+    <script src="js/login/main.js" charset="utf-8"></script>
+    <script type="module" src="js/login/login.js"></script>
+    <script type="module" src="js/login/register.js"></script>
+    </js>
   </head>
   <body>
     <header class="top-nav">
@@ -33,29 +38,28 @@
           </div>
         </menu>
     </header>
-
     <div class="d-grid">
       <div class="image-background">
         <img id="background-img" src="images/gym.jpg" />
           <div class="centered">
             <div class="container" id="container">
               <div class="form-container sign-up-container">
-                <form action="#">
+                <form id="registerForm">
                   <h1 class="login" style="font-weight: bold">Create Account</h1>
                   <span>or use your email for registration</span>
-                  <input type="text" placeholder="Name" />
-                  <input type="email" placeholder="Email" />
-                  <input type="password" placeholder="Password" />
-                  <button>Sign Up</button>
+                  <input type="text" id="registerUsername" placeholder="Name" />
+                  <input type="email" id="registerEmail" autocomplete="email" placeholder="Email" />
+                  <input type="password" id="registerPassword" autocomplete="new-password" placeholder="Password" />
+                  <button id="registerSubmit">Sign Up</button>
                 </form>
               </div>
               <div class="form-container sign-in-container">
-                <form action="#">
+                <form id="loginForm">
                   <h1 class="login" style="font-weight: bold">Sign in</h1>
                   <span>or use your account</span>
-                  <input type="email" placeholder="Email" />
-                  <input type="password" placeholder="Password" />
-                  <button class="login-button">Sign In</button>
+                  <input type="email" id="loginEmail" autocomplete="email" placeholder="Email" />
+                  <input type="password" id="loginPassword" autocomplete="current-password" placeholder="Password" />
+                  <button class="login-button" id="loginSubmit">Sign In</button>
                 </form>
               </div>
               <div class="overlay-container">
@@ -75,7 +79,6 @@
             </div>
           </div>
       </div>
-      <script src="js/main.js" charset="utf-8"></script>
       <div class="navbar align-end">
         <footer>
           <span class="text-reset">About Webpage</span>

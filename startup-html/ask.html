@@ -15,6 +15,9 @@
     
     <link rel="stylesheet" href="css/mainStylesheet.css" />
     </css>
+    <js>
+    <script type="module" src="js/qa/ask.js"></script>
+    </js>
   </head>
   <body>
     <header class="top-nav">
@@ -33,13 +36,13 @@
     <div class="container py-5 px-5 w-50" id="container">
       <h1 class="text-center" style="font-weight: bold; color: #272b2e;">Create Post</h1>
       <br />
-      <div class="d-flex flex-column">
-        <textarea id="post" name="post" rows="3" cols="100" placeholder="Title here"></textarea>
+      <div class="d-flex flex-column" id="postForm">
+        <textarea id="postTitle" rows="3" cols="100" placeholder="Title here"></textarea>
         <br />
-        <textarea id="post" name="post" rows="35" cols="100" placeholder="Ask a question here..."></textarea>
+        <textarea id="postContent" rows="35" cols="100" placeholder="Ask a question here..."></textarea>
       </div>
       <br />
-      <button class="btn" style="background-color: #272b2e;"><a href="ask.html" style="color:#c1cdd0">Post</a></button>
+      <button class="btn" id="createPost" style="background-color: #272b2e;"><a href="ask.html" style="color:#c1cdd0">Post</a></button>
     </div>
   </body>
 </html>

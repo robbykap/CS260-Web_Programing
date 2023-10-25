@@ -15,33 +15,11 @@
     <link rel="stylesheet" href="css/mainStylesheet.css" />
     </css>
     <js>
+    <script type="module" src="js/qa/qa.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script defer src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script defer src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-    <script>
-      $(document).ready(function () {
-          $("#qa").DataTable({
-              "autoWidth": true,
-              "scrollY": "400px",
-              "scrollX": true,
-              "dom": '<lf<t>Bip>',
-              "lengthMenu": [[10,20,25,50,-1], [10,20,25,50,"All"]],
-              "columnDefs": [
-                              {"width" : "120px", "targets": 0},
-                              {"width" : "50px", "targets": 1},
-                                                                ],
-              "buttons": [
-                          'csv', 
-                          {
-                              extend: 'pdfHtml5',
-                              orientation: 'landscape',
-                              pageSize: 'LEGAL'
-                          }
-                            ]
-          });
-        });
-    </script>
     </js>
   </head>
 
@@ -75,7 +53,7 @@
           </tbody>
         </table>
         <br/>
-        <button class="btn" style="background-color: #272b2e"><a href="ask.html" style="color:#c1cdd0">Ask a Question</a></button>
+        <button class="btn" id="createPost" style="background-color: #272b2e"><a style="color:#c1cdd0">Ask a Question</a></button>
       </div>
 
       <div class="navbar align-end">
