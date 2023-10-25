@@ -78,3 +78,14 @@ For this deliverable I properly styled the application into its final appearance
 - **Application elements** - Used good contrast and whitespace. Colors and theme is maintained throught the website.
 - **Application text content** - Consistent fonts and sizing for headers, navigation and so on.
 - **Application images** - Updated the favicon for my websites tab and have a image for my homepage that I may add to my other locations on my website.
+
+## JavaScript deliverable
+
+For this deliverable I implemented by JavaScript so that the application works for a single user. I also added placeholders for future technology.
+
+- **login** - When you login or register it will create a new user and will send you to the profile page which is unreachable until you login.
+- **leaderboad** - The leaderboard currenty is displaying its data from a json and is calculating its total and using that total to sort and give each person a rank.
+- **Question and Answers** - It is using a JSON as well to display the table data but also checks if there is a user before allowing them to post. Creating a post checks the posts validity to make sure there is content and a title before creating a post.
+- **Profile** - Again the table and chart are using a json to display the data. When a user wants to add a lift it checks that each feild is filled out before creating a new lift. Signing out currently erases the user from local storage.
+- **database** - Currently my tables are using placeholder data from a JSON and I currently have the new lifts the user wants to add stored as class objects and will use those classes to update my JSON or ultimatly my database.
+- **WebSocket** - I currently have the posts the user wants to create stored as a class object and will eventually use a websocket to all for other uses to interact with their post.

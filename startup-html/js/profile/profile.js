@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = "index.html";
     });
   
-
+    
     fetch("json/profile.json")
-
+    
     .then((response) => response.json())
     .then((data) => {
-
+        
     // Add total column to data
     data.forEach((row) => row.total = row.squat + row.bench + row.deadlift);
 
