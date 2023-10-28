@@ -162,7 +162,7 @@ The *"Padding"* is the **space between the content and the element's border**, w
 1. **`display` property with `flex` or `inline-flex` value:**
     - `display: flex;`: Turns an element into a flex container, where its child elements become flex items arranged in rows.
 
-    - `display: inline-flex;`: Similar to display: flex;, but the flex container behaves like an inline-level element.
+    - `display: inline-flex;`: Similar to `display: flex;`, but the flex container behaves like an inline-level element.
 
 2. **`flex-direction` property:**
 
