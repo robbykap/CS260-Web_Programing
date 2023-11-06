@@ -1,3 +1,22 @@
+function convertDateToReadableFormat(inputDate) {
+    const dateParts = inputDate.match(/(\d{4})-(\d{2})-(\d{2})/);
+  
+    if (dateParts) {
+      const year = dateParts[1];
+      const month = dateParts[2];
+      const day = dateParts[3];
+  
+      const months = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+      ];
+  
+      const monthName = months[parseInt(month, 10) - 1];
+  
+      return `${monthName} ${parseInt(day, 10)}, ${year}`;
+    }
+  }
+
 document.addEventListener('DOMContentLoaded', function() {
 
     // Gets user from local storage
@@ -22,26 +41,32 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   
     
-    fetch("json/profile.json")
+    fetch('/api/lifts')
     
     .then((response) => response.json())
     .then((data) => {
-        
-    // Add total column to data
-    data.forEach((row) => row.total = row.squat + row.bench + row.deadlift);
 
+    // Filter data by user
+    const userLifts = data.filter((row) => row.user === user.email);
+    
+    if (userLifts.length > 0) {
     // Add data to table
-    data.forEach((row) => {
+    userLifts[0].lifts.forEach((row) => {
+
+        // Add total column to data
+        row.lifts.total = row.lifts.squat + row.lifts.bench + row.lifts.deadlift;
+
         $("#profile").append(
             "<tr>" +
-                "<td>" + row.date + "</td>" +
-                "<td>" + row.squat + "</td>" + 
-                "<td>" + row.bench + "</td>" +
-                "<td>" + row.deadlift + "</td>" +
-                "<td>" + row.total + "</td>" +
+                "<td>" + convertDateToReadableFormat(row.date) + "</td>" +
+                "<td>" + row.lifts.squat + "</td>" + 
+                "<td>" + row.lifts.bench + "</td>" +
+                "<td>" + row.lifts.deadlift + "</td>" +
+                "<td>" + row.lifts.total + "</td>" +
             "</tr>"
         );
         });
+    }
 
     // Add DataTables
     $(document).ready(function () {
@@ -72,12 +97,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Create graph data
-    const dates = data.map((entry) => entry.date);
-    const squatValues = data.map((entry) => entry.squat);
-    const benchValues = data.map((entry) => entry.bench);
-    const deadliftValues = data.map((entry) => entry.deadlift);
-
+    const dates = [];
+    const squatValues = [];
+    const benchValues = [];
+    const deadliftValues = [];
+    
+    if (userLifts.length > 0) {
+      const lifts = userLifts[0].lifts;
+      dates.push(...lifts.map((entry) => convertDateToReadableFormat(entry.date)));
+      squatValues.push(...lifts.map((entry) => entry.lifts.squat));
+      benchValues.push(...lifts.map((entry) => entry.lifts.bench));
+      deadliftValues.push(...lifts.map((entry) => entry.lifts.deadlift));
+    }
+   
     const ctx = document
         .getElementById("progressGraph")
         .getContext("2d");

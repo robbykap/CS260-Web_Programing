@@ -1,3 +1,3 @@
-# simon-css
+# simon-service
 
-This application deliverable demonstrates the use of basic CSS for styling and a responsive design.
+This deliverable demonstrates converting the JavaScript application into a web application by implementing a web service that listens on a network port for HTTP requests.

@@ -1,6 +1,6 @@
-import { ProfileLift } from '../class.js';
-
 document.addEventListener('DOMContentLoaded', function() {
+    const user = JSON.parse(localStorage.getItem('user'));
+
     const liftForm = document.querySelector('#liftForm');
     const liftSubmit = document.querySelector('#submit');
 
@@ -19,13 +19,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const date = liftForm.querySelector("#date").value;
-        const squat = liftForm.querySelector("#squat").value;
-        const bench = liftForm.querySelector("#bench").value;
-        const deadlift = liftForm.querySelector("#deadlift").value;
+        const squat = parseInt(liftForm.querySelector("#squat").value);
+        const bench = parseInt(liftForm.querySelector("#bench").value);
+        const deadlift = parseInt(liftForm.querySelector("#deadlift").value);
 
-        const lift = new ProfileLift(date, squat, bench, deadlift);
-        console.log(lift);
+        const newLift = {date: date, lifts: {squat: squat, bench: bench, deadlift: deadlift}};
+        const targetUser = user.email;
         
-        window.location.href = "profile.html";
+        fetch('/api/lifts', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({user: targetUser, lift: newLift}),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            window.location.href = "profile.html";
+        });
     });
 });
+
