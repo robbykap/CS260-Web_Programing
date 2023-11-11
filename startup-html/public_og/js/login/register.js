@@ -7,14 +7,14 @@ document.addEventListener('DOMContentLoaded', function() {
     registerSubmit.addEventListener('click', function(e) {
         e.preventDefault();
 
-        if (registerForm.querySelector("#newUsername").value == "" || registerForm.querySelector("#newEmail").value == "" || registerForm.querySelector("#newPassword").value == "") {
+        if (registerForm.querySelector("#registerUsername").value == "" || registerForm.querySelector("#registerEmail").value == "" || registerForm.querySelector("#registerPassword").value == "") {
             alert("Please fill in email and password");
             return;
         }
 
-        const username = registerForm.querySelector("#newUsername").value;
-        const email = registerForm.querySelector("#newEmail").value;
-        const password = registerForm.querySelector("#newPassword").value;
+        const username = registerForm.querySelector("#registerUsername").value;
+        const email = registerForm.querySelector("#registerEmail").value;
+        const password = registerForm.querySelector("#registerPassword").value;
 
         const user = new User(username, email, password);
         console.log(user)

@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const DB = require('./database.js');
 
 // The service port. In production the front-end code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
@@ -8,30 +9,22 @@ const port = process.argv.length > 2 ? process.argv[2] : 3000;
 app.use(express.json());
 
 // Serve up the front-end static content hosting
-app.use(express.static('public'));
+app.use(express.static('public_og'));
 
 // Router for service endpoints
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 // GetLifts
-apiRouter.get('/lifts', (_req, res) => {
+apiRouter.get('/lifts', async (_req, res) => {
+  const lifts = await DB.getLifts();
   res.send(lifts);
 });
 
 // SubmitLifts
-apiRouter.post('/lifts', (req, res) => {
-  const newLift = req.body.lift;
-  const targetUser = req.body.user;
-  const targetLifts = lifts.find((entry) => entry.user === targetUser);
-
-  if (targetLifts) {
-    targetLifts.lifts.push(newLift);
-  } else {
-    lifts.push({ user: targetUser, lifts: [newLift] });
-  }
-
-  // Send the response once after updating the data
+apiRouter.post('/lifts', async (req, res) => {
+  DB.addLift(req.body)
+  const lifts = await DB.getLifts();
   res.send(lifts);
 });
 
@@ -44,20 +37,3 @@ app.use((_req, res) => {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
-
-let lifts = [
-  {
-    user: 'Bob',
-    lifts: [
-      { date: '2021-01-01', lifts: { squat: 100, bench: 100, deadlift: 100 } },
-      { date: '2021-01-02', lifts: { squat: 200, bench: 200, deadlift: 200 } },
-    ],
-  },
-  {
-    user: 'Billy',
-    lifts: [
-      { date: '2021-01-03', lifts: { squat: 300, bench: 300, deadlift: 300 } },
-    ],
-  },
-];
-

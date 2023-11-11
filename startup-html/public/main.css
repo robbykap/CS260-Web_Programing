@@ -1,0 +1,79 @@
+* {
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #B5B5B0;
+}
+
+.container {
+  height: fit-content;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 78vh;
+}
+
+.bg-dark {
+  background-color: #3A3F48 !important;
+}
+
+.bg-primary {
+  background-color: #645856 !important;
+}
+
+.bg-image {
+  position: relative;
+  background-image: url(images/gym.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  overflow: auto;
+}
+
+.bg-cover {
+  background-blend-mode: multiply;
+  background-color: #B5B5B0 !important;
+}
+
+.table {
+  --bs-table-bg: #2b3035 !important;
+  --bs-table-border-color: #212529 !important;
+}
+
+th, td, label {
+  color: #B5B5B0 !important;
+}
+
+tbody, td, tfoot, th, thead, tr {
+  border-style: solid;
+  border-width: 0px;
+}
+
+thead, tfoot {
+  --bs-table-bg: #212529 !important;
+}
+
+.active>.page-link, .page-link.active {
+    color: #B5B5B0;
+    background-color: #645856;
+    border-color: #645856;
+}
+
+.dataTables_info {
+  color: #B5B5B0 !important;
+}
+
+.table-link {
+  text-decoration: none;
+  color: #B5B5B0;
+}

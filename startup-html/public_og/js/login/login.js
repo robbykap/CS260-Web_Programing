@@ -7,15 +7,15 @@ document.addEventListener('DOMContentLoaded', function() {
     loginSubmit.addEventListener('click', function(e) {
         e.preventDefault();
 
-        if (loginForm.querySelector("#username").value == "" || loginForm.querySelector("#password").value == "") {
-            alert("Please fill in your username and password");
+        if (loginForm.querySelector("#loginEmail").value == "" || loginForm.querySelector("#loginPassword").value == "") {
+            alert("Please fill in email and password");
             return;
         }
 
-        const username = loginForm.querySelector("#username").value;
-        const password = loginForm.querySelector("#password").value;
+        const email = loginForm.querySelector("#loginEmail").value;
+        const password = loginForm.querySelector("#loginPassword").value;
 
-        const user = new User(username, "", password);
+        const user = new User("username", email, password);
 
         localStorage.setItem('user', JSON.stringify(user));
         window.location.href = "profile.html";

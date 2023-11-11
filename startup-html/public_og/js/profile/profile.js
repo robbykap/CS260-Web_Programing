@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!user) window.location.href = "index.html";
     
     // Displays username
-    document.querySelector('#username').innerHTML = user.username;
+    document.querySelector('#username').innerHTML = user.email;
 
     // Logout
     const logout = document.querySelector('#logout');
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .then((data) => {
 
     // Filter data by user
-    const userLifts = data.filter((row) => row.user === user.username);
+    const userLifts = data.filter((row) => row.user === user.email);
     
     if (userLifts.length > 0) {
     // Add data to table
@@ -123,24 +123,24 @@ document.addEventListener('DOMContentLoaded', function() {
             {
             label: "Squat",
             data: squatValues,
-            borderColor: "#8c7a77",
-            backgroundColor: "#8c7a77",
+            borderColor: "#4c6171",
+            backgroundColor: "#4c6171",
             borderWidth: 6,
             fill: false,
             },
             {
             label: "Bench",
             data: benchValues,
-            borderColor: "#645856",
-            backgroundColor: "#645856",
+            borderColor: "#3c6280",
+            backgroundColor: "#3c6280",
             borderWidth: 6,
             fill: false,
             },
             {
             label: "Deadlift",
             data: deadliftValues,
-            borderColor: "#3d3534",
-            backgroundColor: "#3d3534",
+            borderColor: "#1b4463",
+            backgroundColor: "#1b4463",
             borderWidth: 6,
             fill: false,
             },
@@ -150,19 +150,19 @@ document.addEventListener('DOMContentLoaded', function() {
         plugins: {
             tooltip: {
             displayColors: false,
-            backgroundColor: "#212529",
-            titleColor: "#B5B5B0",
+            backgroundColor: "#373c44",
+            titleColor: "#9aa9ad",
             titelAlign: "center",
             titleFont: {
                 size: 18,
                 weight: "bold",
-                family: "Inter, sans-serif",
+                family: "OCR A Std, monospace",
             },
-            bodyColor: "#B5B5B0",
+            bodyColor: "#9aa9ad",
             bodyAlign: "center",
             bodyFont: {
                 size: 18,
-                family: "Inter, sans-serif",
+                family: "OCR A Std, monospace",
             },
             },
             legend: {
@@ -185,9 +185,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 let visibility = [];
                 for (let i = 0; i < chart.data.datasets.length; i++) {
                     if (chart.isDatasetVisible(i) === true) {
-                    visibility.push("#B5B5B0");
+                    visibility.push("#373c44");
                     } else {
-                    visibility.push("#645856");
+                    visibility.push("#666c75");
                     }
                 }
                 return chart.data.datasets.map((dataset, index) => ({
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 font: {
                 weight: "bold",
                 size: 20,
-                family: "Inter, sans-serif",
+                family: "OCR A Std, monospace",
                 },
             },
             },
@@ -210,11 +210,11 @@ document.addEventListener('DOMContentLoaded', function() {
         scales: {
             x: {
             ticks: {
-                color: "#B5B5B0",
+                color: "#373c44",
                 font: {
                 weight: "bold",
                 size: 18,
-                family: "Inter, sans-serif",
+                family: "OCR A Std, monospace",
                 },
             },
             grid: {
@@ -224,11 +224,11 @@ document.addEventListener('DOMContentLoaded', function() {
             y: {
             beginAtZero: true,
             ticks: {
-                color: "#B5B5B0",
+                color: "#373c44",
                 font: {
                 weight: "bold",
                 size: 18,
-                family: "Inter, sans-serif",
+                family: "OCR A Std, monospace",
                 },
             },
             grid: {

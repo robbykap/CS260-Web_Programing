@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const deadlift = parseInt(liftForm.querySelector("#deadlift").value);
 
         const newLift = {date: date, lifts: {squat: squat, bench: bench, deadlift: deadlift}};
-        const targetUser = user.username;
+        const targetUser = user.email;
         
         fetch('/api/lifts', {
             method: 'POST',
