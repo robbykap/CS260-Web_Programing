@@ -107,3 +107,12 @@ For this deliverable I stored the lifts in the database.
 - **MongoDB Atlas database created** - done!
 - **Endpoints for data** - They all work and update the mongoDB properly.
 - **Stores data in MongoDB** - done!
+
+## Login deliverable
+
+For this deliverable I associate the votes with the logged in user.
+
+- **User registration** - Creates a new account in the database.
+- **existing user** - Stores the lifts under the same user if the user already exists.
+- **Use MongoDB to store credentials** - Stores both user and their votes.
+- **Restricts functionality** - You are resrticed to the login screen but if you where able to make it to the profile page or leaderboard page it would send up back to the login and the leaderboard will not populate untill you have loged in.
