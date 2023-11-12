@@ -17,27 +17,56 @@ function convertDateToReadableFormat(inputDate) {
     }
   }
 
+// Function to sort lifts by date
+function sortLiftsByDate(userLifts) {
+    return userLifts.sort((a, b) => new Date(a.date) - new Date(b.date));
+}
+
+// Function to add data to the table
+function addDataToTable(userLifts) {
+    if (userLifts.length > 0) {
+        userLifts.forEach((row) => {
+            row.lifts.total = row.lifts.squat + row.lifts.bench + row.lifts.deadlift;
+
+            $("#profile").append(
+                "<tr>" +
+                "<td>" + convertDateToReadableFormat(row.date) + "</td>" +
+                "<td>" + row.lifts.squat + "</td>" +
+                "<td>" + row.lifts.bench + "</td>" +
+                "<td>" + row.lifts.deadlift + "</td>" +
+                "<td>" + row.lifts.total + "</td>" +
+                "</tr>"
+            );
+        });
+    }
+}
+
+function signOut() {
+    localStorage.removeItem('user');
+    fetch(`/api/auth/logout`, {
+        method: 'delete',
+    }).then(() => (window.location.href = 'index.html'));
+}
+
 document.addEventListener('DOMContentLoaded', function() {
 
     // Gets user from local storage
     const user = JSON.parse(localStorage.getItem('user'));
+    const username = localStorage.getItem('username');
+    const email = localStorage.getItem('email');
 
     // Checks if user is logged in
     if (!user) window.location.href = "index.html";
     
     // Displays username
-    document.querySelector('#username').innerHTML = user.username;
+    document.querySelector('#username').innerHTML = username;
 
     // Logout
     const logout = document.querySelector('#logout');
     logout.addEventListener('click', function(e) {
         e.preventDefault();
         
-        // Removes user from local storage
-        localStorage.removeItem('user');
-
-        // Redirects to login page
-        window.location.href = "index.html";
+        signOut();
     });
   
     
@@ -47,26 +76,17 @@ document.addEventListener('DOMContentLoaded', function() {
     .then((data) => {
 
     // Filter data by user
-    const userLifts = data.filter((row) => row.user === user.username);
+    const userData = data.filter((row) => row.user === username);
     
-    if (userLifts.length > 0) {
-    // Add data to table
-    userLifts[0].lifts.forEach((row) => {
+    let userLifts = []
 
-        // Add total column to data
-        row.lifts.total = row.lifts.squat + row.lifts.bench + row.lifts.deadlift;
-
-        $("#profile").append(
-            "<tr>" +
-                "<td>" + convertDateToReadableFormat(row.date) + "</td>" +
-                "<td>" + row.lifts.squat + "</td>" + 
-                "<td>" + row.lifts.bench + "</td>" +
-                "<td>" + row.lifts.deadlift + "</td>" +
-                "<td>" + row.lifts.total + "</td>" +
-            "</tr>"
-        );
-        });
+    if (userData.length > 0) {
+        userLifts = sortLiftsByDate(userData[0].lifts);
     }
+    console.log(userLifts)
+
+    // Add data to table
+    addDataToTable(userLifts);
 
     // Add DataTables
     $(document).ready(function () {
@@ -86,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
             { width: "70px", targets: 3 },
             { width: "70px", targets: 4 },
         ],
+        order: [[0, "asc"]],
         buttons: [
             "csv",
             {
@@ -103,7 +124,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const deadliftValues = [];
     
     if (userLifts.length > 0) {
-      const lifts = userLifts[0].lifts;
+
+      const lifts = userLifts;
       dates.push(...lifts.map((entry) => convertDateToReadableFormat(entry.date)));
       squatValues.push(...lifts.map((entry) => entry.lifts.squat));
       benchValues.push(...lifts.map((entry) => entry.lifts.bench));
@@ -123,24 +145,24 @@ document.addEventListener('DOMContentLoaded', function() {
             {
             label: "Squat",
             data: squatValues,
-            borderColor: "#8c7a77",
-            backgroundColor: "#8c7a77",
+            borderColor: "#d4c2be",
+            backgroundColor: "#d4c2be",
             borderWidth: 6,
             fill: false,
             },
             {
             label: "Bench",
             data: benchValues,
-            borderColor: "#645856",
-            backgroundColor: "#645856",
+            borderColor: "#91736e",
+            backgroundColor: "#91736e",
             borderWidth: 6,
             fill: false,
             },
             {
             label: "Deadlift",
             data: deadliftValues,
-            borderColor: "#3d3534",
-            backgroundColor: "#3d3534",
+            borderColor: "#755651",
+            backgroundColor: "#755651",
             borderWidth: 6,
             fill: false,
             },
@@ -150,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
         plugins: {
             tooltip: {
             displayColors: false,
-            backgroundColor: "#212529",
+            backgroundColor: "#2b3035",
             titleColor: "#B5B5B0",
             titelAlign: "center",
             titleFont: {
@@ -187,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (chart.isDatasetVisible(i) === true) {
                     visibility.push("#B5B5B0");
                     } else {
-                    visibility.push("#645856");
+                    visibility.push("#636360");
                     }
                 }
                 return chart.data.datasets.map((dataset, index) => ({
@@ -212,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
             ticks: {
                 color: "#B5B5B0",
                 font: {
-                weight: "bold",
+                // weight: "bold",
                 size: 18,
                 family: "Inter, sans-serif",
                 },
@@ -226,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
             ticks: {
                 color: "#B5B5B0",
                 font: {
-                weight: "bold",
+                // weight: "bold",
                 size: 18,
                 family: "Inter, sans-serif",
                 },

@@ -26,3 +26,14 @@ signupLink.addEventListener('click', (event) => {
     signupForm.style.opacity = 1;
   }, 10);
 });});
+
+async function getUser(email) {
+	let scores = [];
+	// See if we have a user with the given email.
+	const response = await fetch(`/api/user/${email}`);
+	if (response.status === 200) {
+	  return response.json();
+	}
+  
+	return null;
+  }

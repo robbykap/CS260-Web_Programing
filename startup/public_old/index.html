@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="en">
+  <head>
+    <title>Optimal Lifts</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+    <css>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"
+      />
+      <link
+        rel="stylesheet"
+        href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"
+      />
+      <link rel="stylesheet" href="css/mainStylesheet.css" />
+      <link rel="stylesheet" href="css/loginStylesheet.css" />
+    </css>
+    <js>
+    <script src="js/login/main.js" charset="utf-8"></script>
+    <script type="module" src="js/login/login.js"></script>
+    <script type="module" src="js/login/register.js"></script>
+    </js>
+  </head>
+  <body>
+    <header class="top-nav">
+      <h1 class="text-center" style="font-weight: bold; font-size: 50px; color: #272b2e">Optimal Lifts</h1>
+    </header>
+    <div class="d-grid">
+      <div class="image-background">
+        <img id="background-img" src="images/gym.jpg" />
+          <div class="centered">
+            <div class="container" id="container">
+              <div class="form-container sign-up-container">
+                <form id="registerForm">
+                  <h1 class="login" style="font-weight: bold">Create Account</h1>
+                  <span>or use your email for registration</span>
+                  <input type="text" id="registerUsername" placeholder="Name" />
+                  <input type="email" id="registerEmail" autocomplete="email" placeholder="Email" />
+                  <input type="password" id="registerPassword" autocomplete="new-password" placeholder="Password" />
+                  <button id="registerSubmit">Sign Up</button>
+                </form>
+              </div>
+              <div class="form-container sign-in-container">
+                <form id="loginForm">
+                  <h1 class="login" style="font-weight: bold">Sign in</h1>
+                  <span>or use your account</span>
+                  <input type="email" id="loginEmail" autocomplete="email" placeholder="Email" />
+                  <input type="password" id="loginPassword" autocomplete="current-password" placeholder="Password" />
+                  <button class="login-button" id="loginSubmit">Sign In</button>
+                </form>
+              </div>
+              <div class="overlay-container">
+              <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                  <h1 class="login-op" style="font-weight: bold">Welcome Back!</h1>
+                  <p class="flavor-text">To keep connected with us please login with your personal details</p>
+                  <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                  <h1 class="login-op" style="font-weight: bold">Hi There!</h1>
+                  <p class="flavor-text">Enter your personal details to open an account with us</p>
+                  <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="navbar align-end">
+        <footer>
+          <span class="text-reset">About Webpage</span>
+          <br />
+          <a class="github" href="https://github.com/robbykap/startup">Optimal Lifts Repo</a>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

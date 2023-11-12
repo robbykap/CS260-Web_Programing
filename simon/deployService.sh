@@ -1,4 +1,4 @@
-while getopts k:h:s: flag
+wile getopts k:h:s: flag
 do
     case "${flag}" in
         k) key=${OPTARG};;
@@ -45,4 +45,4 @@ ENDSSH
 
 # Step 5
 printf "\n----> Removing local copy of the distribution package\n"
-rm -rf dist
+rm -rf disth

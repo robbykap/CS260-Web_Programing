@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="en">
+  <head>
+    <title>Optimal Lifts</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    
+    <css>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"/>
+    
+    <link rel="stylesheet" href="css/mainStylesheet.css" />
+    </css>
+    <js>
+    <script type="module" src="js/qa/qa.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script defer src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script defer src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    </js>
+  </head>
+
+  <body>
+    <header class="top-nav">
+      <h1 class="text-center" style="font-weight: bold; font-size: 50px; color: #272b2e;">Optimal Lifts</h1>
+        <menu>
+          <div>
+            <a class="tabs" href="leaderboard.html">Leaderboard</a>
+            <a class="tabs" href="qa.html">Q&A</a>
+            <a class="tabs" href="profile.html">Profile</a>
+          </div>
+        </menu>
+      </nav>
+    </header>
+
+    <div class="d-grid">
+      <div class="container py-5 px-5  w-50" id="container">
+        <h1 class="text-center" style="font-weight: bold; color: #272b2e;">Questions and Answers</h1>
+        <br/>
+        <table id="qa" class="table table-striped hover" style="width: 100%">
+          <thead>
+          <tr>
+            <th>Questions</th>
+            <th>Users</th>
+          </tr>
+          </thead>
+          <tbody>
+            <!-- JSON data -->
+          </tbody>
+        </table>
+        <br/>
+        <button class="btn" id="createPost" style="background-color: #272b2e"><a style="color:#c1cdd0">Ask a Question</a></button>
+      </div>
+
+      <div class="navbar align-end">
+        <footer>
+          <span class="text-reset">About Webpage</span>
+          <br/>
+          <a class="github" href="https://github.com/robbykap/startup">Optimal Lifts Repo</a>
+        </footer>
+      </div>
+      
+    </div>
+  </body>
+</html>

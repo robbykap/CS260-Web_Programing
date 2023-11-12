@@ -21,6 +21,22 @@ h1 {
   min-height: 78vh;
 }
 
+.align-end {
+  align-self: end !important;
+  margin-bottom: 0 !important;
+}
+
+main {
+  flex: 1 !important
+}
+
+footer {
+  background-color: #3A3F48 !important;
+  color: #B5B5B0 !important;
+  text-align: center !important;
+  padding: 1px !important;
+}
+
 .bg-dark {
   background-color: #3A3F48 !important;
 }

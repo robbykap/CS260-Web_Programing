@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html data-bs-theme="dark" lang="en">
+  <head>
+    <title>Optimal Lifts</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+    <css>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"/>
+    
+    <link rel="stylesheet" href="css/mainStylesheet.css" />
+    </css>
+    <js>
+    <script type="module" src="js/qa/ask.js"></script>
+    </js>
+  </head>
+  <body>
+    <header class="top-nav">
+      <h1 class="text-center" style="font-weight: bold; font-size: 50px; color: #272b2e;">Optimal Lifts</h1>
+        <menu>
+          <div>
+            <a class="tabs" href="leaderboard.html">Leaderboard</a>
+            <a class="tabs" href="qa.html">Q&A</a>
+            <a class="tabs" href="profile.html">Profile</a>
+          </div>
+        </menu>
+      </nav>
+    </header>
+
+    <div class="container py-5 px-5 w-50" id="container">
+      <h1 class="text-center" style="font-weight: bold; color: #272b2e;">Create Post</h1>
+      <br />
+      <div class="d-flex flex-column" id="postForm">
+        <textarea id="postTitle" rows="3" cols="100" placeholder="Title here"></textarea>
+        <br />
+        <textarea id="postContent" rows="35" cols="100" placeholder="Ask a question here..."></textarea>
+      </div>
+      <br />
+      <button class="btn" id="createPost" style="background-color: #272b2e;"><a href="ask.html" style="color:#c1cdd0">Post</a></button>
+    </div>
+  </body>
+</html>
