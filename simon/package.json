@@ -1,26 +1,28 @@
 {
-  "name": "simon-login",
+  "name": "simon-websocket",
   "version": "1.0.0",
-  "description": "This demonstrates authenticating users.",
+  "description": "This demonstrates using WebSocket for peer to peer communication.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/webprogramming260/simon-login.git"
+    "url": "git+https://github.com/webprogramming260/simon-websocket.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/webprogramming260/simon-login/issues"
+    "url": "https://github.com/webprogramming260/simon-websocket/issues"
   },
-  "homepage": "https://github.com/webprogramming260/simon-login#readme",
+  "homepage": "https://github.com/webprogramming260/simon-websocket#readme",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.6",
     "express": "^4.18.2",
     "mongodb": "^4.17.1",
-    "uuid": "^9.0.1"
-  }
+    "uuid": "^9.0.1",
+    "ws": "^8.14.2"
+  },
+  "keywords": []
 }

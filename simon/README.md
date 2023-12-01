@@ -1,3 +1,3 @@
-# simon-login
+# simon-websocket
 
-This deliverable demonstrates authenticating users and storing credentials and authentication tokens in MongoDB.
+This deliverable demonstrates peer to peer communication using WebSocket.

@@ -1,4 +1,4 @@
-wile getopts k:h:s: flag
+while getopts k:h:s: flag
 do
     case "${flag}" in
         k) key=${OPTARG};;
@@ -20,8 +20,8 @@ printf "\n----> Build the distribution package\n"
 rm -rf dist
 mkdir dist
 cp -r public dist
-cp *.json dist
 cp *.js dist
+cp *.json dist
 
 # Step 2
 printf "\n----> Clearing out previous distribution on the target\n"
@@ -45,4 +45,4 @@ ENDSSH
 
 # Step 5
 printf "\n----> Removing local copy of the distribution package\n"
-rm -rf disth
+rm -rf dist
