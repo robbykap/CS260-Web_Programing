@@ -116,3 +116,12 @@ For this deliverable I associate the votes with the logged in user.
 - **existing user** - Stores the lifts under the same user if the user already exists.
 - **Use MongoDB to store credentials** - Stores both user and their votes.
 - **Restricts functionality** - You are resrticed to the login screen but if you where able to make it to the profile page or leaderboard page it would send up back to the login and the leaderboard will not populate untill you have loged in.
+
+## WebSocket deliverable
+
+For this deliverable I used webSocket to update the leaderboard on the frontend in realtime.
+
+- **Backend listens for WebSocket connection** - done!
+- **Frontend makes WebSocket connection** - done!
+- **Data sent over WebSocket connection** - done!
+- **WebSocket data displayed** - All user lifts display in realtime on the leaderboard. The leaderboard only updates though if the user adds a lift with a high total then their previous max or if it is there first time post a lift. Very cool to see working would want to mess around later and do more with it.
