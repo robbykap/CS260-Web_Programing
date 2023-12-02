@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+    socket.binaryType = "arraybuffer";
+
     const username = (localStorage.getItem('username'));
 
     const liftForm = document.querySelector('#liftForm');
@@ -26,10 +30,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const newLift = {date: date, lifts: {squat: squat, bench: bench, deadlift: deadlift}};
         const targetUser = username;
         
+        const newUserLift = JSON.stringify({user: targetUser, lift: newLift})
+
+        const message = {
+            type: 'newLift',
+            data: newUserLift,
+        }
+
+        socket.send(JSON.stringify(message));
+
         fetch('/api/lifts', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({user: targetUser, lift: newLift}),
+            body: newUserLift,
         })
         .then((response) => response.json())
         .then((data) => {

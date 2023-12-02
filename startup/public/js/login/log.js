@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+
+
 const loginForm = document.getElementById('loginForm');
 const signupForm = document.getElementById('registerForm');
 const loginLink = document.getElementById('login-link');
