@@ -1,7 +1,8 @@
-body {
+.body {
     display: flex;
     flex-direction: column;
     min-width: 375px;
+    height: 100vh;
   }
   
   header {
@@ -9,7 +10,7 @@ body {
   }
   
   main {
-    flex: 1 calc(100vh - 110px);
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,8 +49,4 @@ body {
     footer {
       display: none;
     }
-    main {
-      flex: 1 100vh;
-    }
   }
-  
