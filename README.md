@@ -125,3 +125,12 @@ For this deliverable I used webSocket to update the leaderboard on the frontend 
 - **Frontend makes WebSocket connection** - done!
 - **Data sent over WebSocket connection** - done!
 - **WebSocket data displayed** - All user lifts display in realtime on the leaderboard. The leaderboard only updates though if the user adds a lift with a high total then their previous max or if it is there first time post a lift. Very cool to see working would want to mess around later and do more with it.
+
+## React deliverable
+
+For this deliverable I converted the application over to use React.
+
+- **Bundled and transpiled** - done!
+- **Components** - Login, leaderboard, Profile, and Submiting Lifts works!
+- **Router** - Routing between login and lift components.
+- **Hooks** - React `UseState` works great to update auth and lifts including WebSocket.
