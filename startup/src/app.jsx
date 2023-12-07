@@ -75,7 +75,17 @@ function App() {
                     <Route path='/lift' element={<Lift />} />
                     <Route path='*' element={<NotFound />} />
                 </Routes>
-
+                
+                {user === null && (
+                <footer className='mt-5'>
+                    <div className="box bg-dark mb-0">
+                        <p className="text-muted" style={{ marginTop: '1%', marginBottom: '1%', color: '#B5B5B0' }}>
+                            <a href="https://github.com/robbykap/CS260/tree/3cb770ad7f8d62b01e1aa5a938caf4efdb676571" style={{fontSize: '16px'}} >Github Repo</a>
+                        </p>
+                    </div>
+                </footer>
+                )}
+                {user !== null && (
                 <footer className='mt-5'>
                     <div className="box bg-dark mb-0">
                         <p className="text-muted" style={{ marginTop: '1%', marginBottom: '1%', color: '#B5B5B0' }}>
@@ -83,6 +93,7 @@ function App() {
                         </p>
                     </div>
                 </footer>
+                )}
             </div>
         </BrowserRouter>
       );
