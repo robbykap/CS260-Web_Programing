@@ -47,7 +47,7 @@ footer {
 
 .bg-image {
   position: relative;
-  background-image: url(public/gym.jpg);
+  background-image: url(/dist/gym.jpg);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -92,4 +92,10 @@ thead, tfoot {
 .table-link {
   text-decoration: none;
   color: #B5B5B0;
+}
+
+.nav-link {
+  color: #B5B5B0 !important;
+  font-size: 18px !important;
+  font-weight: 400 !important;
 }

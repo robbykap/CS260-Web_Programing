@@ -17,7 +17,7 @@ function App() {
                 <header>
                     <nav className='navbar navbar-expand-lg navbar-dark bg-dark mb-5'>
                         <a className="navbar-brand" href="#">
-                            <h1 style={{ fontWeight: 'bold', fontSize: '46px', paddingLeft: '3%', paddingTop: '3%', paddingBottom: '3%' }}>
+                            <h1 style={{ fontWeight: 'bold', fontSize: '46px', paddingLeft: '3%', paddingTop: '3%', paddingBottom: '3%', marginBottom: '0' }}>
                                 Optimal Lifts
                             </h1>
                         </a>
@@ -35,12 +35,13 @@ function App() {
                                         </NavLink>
                                     </li>
                                 )}
-                                <li className="nav-item" style={{ paddingLeft: '6%' }}>
-                                    <NavLink className='nav-link' to='leaderboard'>
-                                        Leaderboard
-                                    </NavLink>
-                                </li>
-                                {/* if user is not null these links are shown */}
+                                {user !== null && (
+                                    <li className="nav-item" style={{ paddingLeft: '6%' }}>
+                                        <NavLink className='nav-link' to='leaderboard'>
+                                            Leaderboard
+                                        </NavLink>
+                                    </li>
+                                )}
                                 {user !== null && (
                                     <li className="nav-item" style={{ paddingLeft: '6%' }}>
                                         <NavLink className='nav-link' to='profile'>
