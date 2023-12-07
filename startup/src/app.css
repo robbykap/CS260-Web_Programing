@@ -47,7 +47,7 @@ footer {
 
 .bg-image {
   position: relative;
-  background-image: url(images/gym.jpg);
+  background-image: url(public/gym.jpg);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
