@@ -61,7 +61,10 @@ async function create(endpoint, user) {
   }
 }
 
-export function Login() {
+export function Login(props) {
+
+  // get the onLogin function from props
+  const { onLogin } = props;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -111,6 +114,7 @@ export function Login() {
 
       try {
         await login(`/api/auth/login`, user);
+        onLogin(localStorage.getItem('username'));
         navigate('/profile');
       } catch (err) {
         console.log(err);
@@ -133,6 +137,7 @@ export function Login() {
 
       try {
         await create(`/api/auth/create`, user);
+        onLogin(localStorage.getItem('username'));
         navigate('/profile');
       } catch (err) {
         console.log(err);

@@ -7,6 +7,10 @@ import { Profile } from './profile/profile';
 import { Lift } from './lift/lift';
 
 function App() { 
+    const [user, setUser] = React.useState(null);
+
+    console.log(user);
+
     return (
         <BrowserRouter>
             <div className='body bg-dark bg-image bg-cover' data-bs-theme="dark">
@@ -22,30 +26,51 @@ function App() {
                         </button>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li className='nav-item' style={{ paddingLeft: '6%' }}>
-                                    <NavLink className='nav-link' to=''>
-                                        Login
-                                    </NavLink>
-                                </li>
+                                
+                                {/* if user is null this is the only link */}
+                                {user === null && (
+                                    <li className="nav-item" style={{ paddingLeft: '6%' }}>
+                                        <NavLink className='nav-link' to=''>
+                                            Login
+                                        </NavLink>
+                                    </li>
+                                )}
                                 <li className="nav-item" style={{ paddingLeft: '6%' }}>
                                     <NavLink className='nav-link' to='leaderboard'>
                                         Leaderboard
                                     </NavLink>
                                 </li>
-                                <li className="nav-item" style={{ paddingLeft: '6%' }}>
-                                    <NavLink className='nav-link' to='profile'>
-                                        Profile
-                                    </NavLink>
-                                </li>
+                                {/* if user is not null these links are shown */}
+                                {user !== null && (
+                                    <li className="nav-item" style={{ paddingLeft: '6%' }}>
+                                        <NavLink className='nav-link' to='profile'>
+                                            Profile
+                                        </NavLink>
+                                    </li>
+                                )}
                             </ul>
                         </div>
                     </nav>
                 </header>
 
                 <Routes>
-                    <Route path='/' element={<Login />} />
+                    <Route 
+                        path='/' 
+                        element={
+                            <Login 
+                                onLogin = {(user) => setUser(user)}
+                            />
+                            } 
+                    />
                     <Route path='/leaderboard' element={<Leaderboard />} />
-                    <Route path='/profile' element={<Profile />} />
+                    <Route 
+                        path='/profile' 
+                        element={
+                            <Profile 
+                                onSignOut = {() => setUser(null)}
+                            />
+                            } 
+                    />
                     <Route path='/lift' element={<Lift />} />
                     <Route path='*' element={<NotFound />} />
                 </Routes>

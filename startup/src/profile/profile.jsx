@@ -32,7 +32,8 @@ function sortLiftsByDate(userLifts) {
     return userLifts.sort((a, b) => new Date(a.date) - new Date(b.date));
 }
 
-export function Profile() {
+export function Profile(props) {
+    const { onSignOut } = props;
     const [userLifts, setUserLifts] = useState({});
     const navigate = useNavigate();
 
@@ -55,6 +56,7 @@ export function Profile() {
         const handleSignOut = (event) => {
             event.preventDefault();
             localStorage.clear();
+            onSignOut();
             navigate('/');
         }
 
